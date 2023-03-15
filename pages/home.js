@@ -6,7 +6,7 @@ Note: Template used from https://play.tailwindcss.com/
 */
 
 
-export default function Home() {
+export default function UserHome() {
   return (
     <>
       <Head>
