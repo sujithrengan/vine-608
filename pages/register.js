@@ -28,12 +28,10 @@ const Register = () => {
         if (e.target.name == 'confirmPassword') {
             if (formData['password'] != e.target.value) {
                 setStatus({ ...status, error: true, message: 'Passwords do not match' });
-                console.log('mismatch', formData['password'], formData['confirmPassword']);
             }
 
             else {
                 setStatus({ ...status, error: false, message: '' });
-                console.log('right');
             }
         }
     }
@@ -49,11 +47,11 @@ const Register = () => {
             if (response.data.status == 0) {
                 router.push('/home')
             } else {
-                setStatus({...status, error:true, message: response.data.message});
+                setStatus({ ...status, error: true, message: response.data.message });
             }
         } catch (error) {
             console.log(error)
-            setStatus({...status, error:true, message: "Error encountered. Please try again later."});
+            setStatus({ ...status, error: true, message: "Error encountered. Please try again later." });
         }
     }
 
@@ -62,7 +60,10 @@ const Register = () => {
             <div className="max-w-md mx-auto bg-white rounded-md shadow-md overflow-hidden">
                 <div className="py-4 px-6">
                     <h2 className="text-2xl font-bold text-gray-800">Create Account</h2>
-                    {status.message && <p className="text-center mt-2 text-sm text-red-600">{status.message}</p>}
+                    {status.message && <div id="alert-2" class="flex p-4 my-2 text-red-800 rounded-lg bg-red-50 " role="alert">
+                        <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                        <span class="sr-only">Info</span>
+                        <div class="ml-3 text-sm font-medium">{status.message}</div></div>}
                 </div>
                 <form onSubmit={handleSubmit} className="px-6 pb-6">
                     <div className="grid grid-cols-2 gap-4">

@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import axios from 'axios';
+import { useRouter } from 'next/router'
 
 /*
 Note: Template used from https://play.tailwindcss.com/
@@ -7,6 +9,23 @@ Note: Template used from https://play.tailwindcss.com/
 
 
 export default function Home() {
+  const router = useRouter()
+
+  const handleFeelingLucky = async event => {
+    event.preventDefault();
+    const apiURL = "http://localhost:3001/api/feelingLucky"
+    try {
+      const response = await axios.get(apiURL);
+      console.log(response.data);
+      if (response.data.status == 0) {
+        router.push('/video?id='+response.data.video_id)
+      } 
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
   return (
     <>
       <Head>
@@ -20,14 +39,14 @@ export default function Home() {
           <div class="mx-auto max-w-md">
             <h2 class="font-extrabold text-4xl">vine-608</h2>
             <div class="divide-y divide-gray-300/50">
-              <div class="space-y-6 py-8 text-base leading-7 text-gray-600">
+              <div class="space-y-6 py-2 text-base leading-7 text-gray-600">
                 <p>A vine clone implementation for CSCE 608 Database Systems course project. </p>
                 <ul class="space-y-1">
                   <Link href="/login">
                     <li class="flex items-center hover:bg-slate-50 p-3">
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path> <path d="M20 12h-13l3 -3m0 6l-3 -3"></path> </svg>
                       <p class="ml-4">
-                        Login into your <code class="text-sm font-bold text-gray-900">vine-608</code> account
+                        login into your <code class="text-sm font-bold text-gray-900">vine-608</code> account
                       </p>
                     </li>
                   </Link>
@@ -62,6 +81,17 @@ export default function Home() {
                         <path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"></path>
                       </svg><p class="ml-4">
                         <code class="text-sm font-bold text-gray-900">popular</code> users
+                      </p>
+                    </li>
+                  </Link>
+                  <Link href="/video" onClick={handleFeelingLucky}>
+                    <li class="flex items-center hover:bg-slate-50 p-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-among-us" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M10.646 12.774c-1.939 .396 -4.467 .317 -6.234 -.601c-2.454 -1.263 -1.537 -4.66 1.423 -4.982c2.254 -.224 3.814 -.354 5.65 .214c.835 .256 1.93 .569 1.355 3.281c-.191 1.067 -1.07 1.904 -2.194 2.088z"></path>
+                        <path d="M5.84 7.132c.083 -.564 .214 -1.12 .392 -1.661c.456 -.936 1.095 -2.068 3.985 -2.456a22.464 22.464 0 0 1 2.867 .08c1.776 .14 2.643 1.234 3.287 3.368c.339 1.157 .46 2.342 .629 3.537v11l-12.704 -.019c-.552 -2.386 -.262 -5.894 .204 -8.481"></path>
+                        <path d="M17 10c.991 .163 2.105 .383 3.069 .67c.255 .13 .52 .275 .534 .505c.264 3.434 .57 7.448 .278 9.825h-3.881"></path>
+                      </svg><p class="ml-4"> i'm feeling <code class="text-sm font-bold text-gray-900">lucky</code>
                       </p>
                     </li>
                   </Link>
