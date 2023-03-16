@@ -15,7 +15,7 @@ export default function Home() {
     event.preventDefault();
     const apiURL = "http://localhost:3001/api/feelingLucky"
     try {
-      const response = await axios.get(apiURL);
+      const response = await axios.get(apiURL); 
       console.log(response.data);
       if (response.data.status == 0) {
         router.push('/video?id='+response.data.video_id)
