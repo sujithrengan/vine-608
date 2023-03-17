@@ -31,7 +31,7 @@ export default function Video() {
     };
 
     useEffect(() => {
-        if(!id) {
+        if (!id) {
             return;
         }
         fetchVideo();
@@ -49,7 +49,7 @@ export default function Video() {
                         </svg>
                         <h2 className="font-extrabold text-4xl">{video.title}</h2>
                         <div className="divide-y divide-gray-300/50">
-                            <div className="space-y-6 py-2 text-base leading-7 text-gray-600">
+                            <div className="space-y-6 py-2  text-base leading-7 text-gray-600">
                                 <p className="text-m">{video.description}</p>
 
                                 <video class="w-full h-auto max-w-full border border-gray-200 rounded-lg dark:border-gray-700" autoplay controls>
@@ -57,12 +57,41 @@ export default function Video() {
                                     Your browser does not support the video tag.
                                 </video>
 
+                                <div class="bg-white rounded-lg mt-2" id="stats">
+                                    <div class="grid grid-cols-3 text-gray-900 items-center justify-center">
+                                        <div class="flex flex-col items-center justify-center">
+                                            <dt class="text-2xl font-extrabold">{video.likes}</dt>
+                                            <dd class="font-light text-gray-500 ">likes</dd>
+                                        </div>
+                                        <div class="flex flex-col items-center justify-center">
+                                            <dt class="text-2xl font-extrabold">{video && video.num_comments}</dt>
+                                            <dd class="font-light text-gray-500 ">comments</dd>
+                                        </div>
+                                        <div class="flex flex-col items-center justify-center">
+                                            <dt class="text-2xl font-extrabold">{video.views}</dt>
+                                            <dd class="font-light text-gray-500 ">views</dd>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                            <div className="pt-8 text-base font-semibold leading-7">
-                                <p className="text-gray-900">Made with Next.js, Tailwind and 🖤</p>
-                                <p>
-                                    <a href="mailto:sujithrengan@tamu.edu" className="text-sky-500 hover:text-sky-600">Email me &rarr;</a>
-                                </p>
+                            <div class="pt-2 text-base font-semibold leading-7">
+                                <p class="text-gray-600">Recent comments</p>
+                                <ul role="list" class="divide-y divide-gray-200">
+                                {video && video.comments && video.comments.map((comment) => (<li class="py-3 sm:py-4">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-sm font-medium text-gray-900 truncate">
+                                                    {comment.user}
+                                                </p>
+                                                <p class="text-sm text-gray-500">
+                                                    {comment.comment}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>))}
+                                </ul>
+
                             </div>
                         </div>
                     </div>

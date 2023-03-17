@@ -47,7 +47,7 @@ export default function Celebrities() {
                                 <p className="text-m">User profiles with the most number of followers and their email verified.</p>
                                 <ul className="space-y-1">
                                     {profiles.map((profile) => (
-                                        <Link key={profile.user_id} href="/profile">
+                                        <Link key={profile.user_id} href={"/profile?id="+profile.user_id}>
                                             <li className="flex items-center py-2">
                                                 <div class="flex items-center space-x-4 w-full bg-white p-2 bg-slate-50 hover:drop-shadow-md ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-8">
                                                     <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
