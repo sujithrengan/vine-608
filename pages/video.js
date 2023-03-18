@@ -49,7 +49,7 @@ export default function Video() {
                         </svg>
                         <h2 className="font-extrabold text-4xl mb-1">{video.title}</h2>
                         <ul>
-                            {video && video.topics && video.topics.map((tag) => (<a href={"/topic?name="+tag}><span class="bg-gray-100 cursor-pointer text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 
+                            {video && video.topics && video.topics.map((tag) => (<a key={tag} href={"/topic?name="+tag}><span class="bg-gray-100 cursor-pointer text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 
                             rounded dark:bg-gray-700 dark:text-gray-300">{tag}</span></a>))}
                         </ul>
 
