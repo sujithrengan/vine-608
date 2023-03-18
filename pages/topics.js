@@ -54,7 +54,7 @@ export default function Topics() {
                                         <Link key={topic.topic_id} href={"/topic?name=" + topic.name}>
                                             <button type="button" class="inline-flex m-1 items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-slate-500 rounded-lg hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
                                                 {topic.name}
-                                                <span class="inline-flex items-center justify-center w-4 h-4 ml-2 text-xs font-semibold bg-slate-200 text-black rounded-full">
+                                                <span class="inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold bg-slate-200 text-black rounded">
                                                   {topic.num_videos}
                                                 </span>
                                             </button>
