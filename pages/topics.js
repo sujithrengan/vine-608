@@ -14,7 +14,7 @@ export default function Topics() {
     const [topics, setTopics] = useState([]);
 
     const fetchTopics = async () => {
-        const apiURL = "http://localhost:3001/api/getPopularTopics"
+        const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/getPopularTopics"
         try {
             const response = await axios.get(apiURL);
             console.log(response.data);

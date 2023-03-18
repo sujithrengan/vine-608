@@ -26,7 +26,7 @@ const Upload = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        const apiURL = "http://localhost:3001/api/uploadVideo"
+        const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/uploadVideo"
         try {
             let userId = null;
             if (typeof window !== 'undefined') {

@@ -14,7 +14,7 @@ export default function Trending() {
     const [videos, setVideos] = useState([]);
 
     const fetchVideos = async () => {
-        const apiURL = "http://localhost:3001/api/trendingVideos"
+        const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/trendingVideos"
         try {
             const response = await axios.get(apiURL);
             console.log(response.data);

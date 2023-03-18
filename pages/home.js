@@ -16,7 +16,7 @@ export default function UserHome() {
 
     const fetchUser = async (user_id) => {
 
-        const apiURL = "http://localhost:3001/api/getUser?id=" + user_id
+        const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/getUser?id=" + user_id
         try {
             const response = await axios.get(apiURL);
             console.log(response.data);

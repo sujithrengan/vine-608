@@ -16,7 +16,7 @@ export default function Video() {
     const [video, setVideo] = useState({});
 
     const fetchVideo = async () => {
-        const apiURL = "http://localhost:3001/api/getVideo?id=" + id
+        const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/getVideo?id=" + id
         try {
             const response = await axios.get(apiURL);
             console.log(response.data);
@@ -83,7 +83,7 @@ export default function Video() {
                             <div class="pt-2 text-base font-semibold leading-7">
                                 <p class="text-gray-600">Recent comments</p>
                                 <ul role="list" class="divide-y divide-gray-200">
-                                    {video && video.comments && video.comments.map((comment) => (<li class="py-3 sm:py-4">
+                                    {video && video.comments && video.comments.map((comment) => (<li key = {comment.comment} class="py-3 sm:py-4">
                                         <div class="flex items-center space-x-4">
                                             <div class="flex-1 min-w-0">
                                                 <p class="text-sm font-medium text-gray-900 truncate">

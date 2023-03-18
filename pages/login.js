@@ -24,7 +24,7 @@ const Login = () => {
         event.preventDefault();
         var bcrypt = require('bcryptjs');
         const pwd_hash = "b'" + bcrypt.hashSync(password, '$2b$12$spvL8Vjm3rIgqj7f5GvIEu') + "'";
-        const apiURL = "http://localhost:3001/api/login"
+        const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/login"
         try {
             const response = await axios.post(apiURL, { 'email': email, 'pwd_hash': pwd_hash });
             console.log(response.data);

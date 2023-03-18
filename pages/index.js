@@ -13,7 +13,7 @@ export default function Home() {
 
   const handleFeelingLucky = async event => {
     event.preventDefault();
-    const apiURL = "http://localhost:3001/api/feelingLucky"
+    const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/feelingLucky"
     try {
       const response = await axios.get(apiURL);
       console.log(response.data);

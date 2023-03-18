@@ -17,7 +17,7 @@ export default function Profile() {
 
     const fetchUser = async () => {
 
-        const apiURL = "http://localhost:3001/api/getUser?id=" + id
+        const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/getUser?id=" + id
         try {
             const response = await axios.get(apiURL);
             console.log(response.data);

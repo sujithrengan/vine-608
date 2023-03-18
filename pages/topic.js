@@ -15,7 +15,7 @@ export default function Topic() {
     const topic = router.query.name;
 
     const fetchVideos = async () => {
-        const apiURL = "http://localhost:3001/api/getVideosByTopic?topic=" + topic
+        const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/getVideosByTopic?topic=" + topic
         try {
             const response = await axios.get(apiURL);
             console.log(response.data);

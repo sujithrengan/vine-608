@@ -40,7 +40,7 @@ const Register = () => {
         event.preventDefault()
         var bcrypt = require('bcryptjs');
         const pwd_hash = "b'" + bcrypt.hashSync(formData.password, '$2b$12$spvL8Vjm3rIgqj7f5GvIEu') + "'";
-        const apiURL = "http://localhost:3001/api/register"
+        const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/register"
         try {
             const response = await axios.post(apiURL, { 'firstName': formData.firstName, 'lastName': formData.lastName, 'username': formData.username, 'email': formData.email, 'dob': formData.dob, 'country': formData.country, 'pwd_hash': pwd_hash });
             console.log(response.data);

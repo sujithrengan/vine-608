@@ -14,7 +14,7 @@ export default function Celebrities() {
     const [profiles, setProfiles] = useState([]);
 
     const fetchProfiles = async () => {
-        const apiURL = "http://localhost:3001/api/celebrities"
+        const apiURL = process.env.NEXT_PUBLIC_API_URL + "/api/celebrities"
         try {
             const response = await axios.get(apiURL);
             console.log(response.data);
