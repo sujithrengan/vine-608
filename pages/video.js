@@ -47,7 +47,12 @@ export default function Video() {
                             <path d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z"></path>
                             <path d="M3 6m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
                         </svg>
-                        <h2 className="font-extrabold text-4xl">{video.title}</h2>
+                        <h2 className="font-extrabold text-4xl mb-1">{video.title}</h2>
+                        <ul>
+                            {video && video.topics && video.topics.map((tag) => (<a href={"/topic?name="+tag}><span class="bg-gray-100 cursor-pointer text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 
+                            rounded dark:bg-gray-700 dark:text-gray-300">{tag}</span></a>))}
+                        </ul>
+
                         <div className="divide-y divide-gray-300/50">
                             <div className="space-y-6 py-2  text-base leading-7 text-gray-600">
                                 <p className="text-m">{video.description}</p>
@@ -78,7 +83,7 @@ export default function Video() {
                             <div class="pt-2 text-base font-semibold leading-7">
                                 <p class="text-gray-600">Recent comments</p>
                                 <ul role="list" class="divide-y divide-gray-200">
-                                {video && video.comments && video.comments.map((comment) => (<li class="py-3 sm:py-4">
+                                    {video && video.comments && video.comments.map((comment) => (<li class="py-3 sm:py-4">
                                         <div class="flex items-center space-x-4">
                                             <div class="flex-1 min-w-0">
                                                 <p class="text-sm font-medium text-gray-900 truncate">

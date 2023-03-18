@@ -56,7 +56,7 @@ const Login = () => {
                 <div className="relative bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
                     <div className="mx-auto max-w-md">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path> <path d="M20 12h-13l3 -3m0 6l-3 -3"></path> </svg>
-                        <h2 className="font-extrabold text-4xl">login</h2>
+                        <h2 className="font-extrabold text-4xl">login</h2> 
                         <div className="divide-y divide-gray-300/50">
                             <div className="space-y-6 py-2 text-base leading-7 text-gray-600">
                                 <p className="text-m">Existing users can login into their account to upload and browse videos. </p>

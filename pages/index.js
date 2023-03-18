@@ -15,11 +15,11 @@ export default function Home() {
     event.preventDefault();
     const apiURL = "http://localhost:3001/api/feelingLucky"
     try {
-      const response = await axios.get(apiURL); 
+      const response = await axios.get(apiURL);
       console.log(response.data);
       if (response.data.status == 0) {
-        router.push('/video?id='+response.data.video_id)
-      } 
+        router.push('/video?id=' + response.data.video_id)
+      }
     } catch (error) {
       console.log(error)
     }
@@ -92,6 +92,19 @@ export default function Home() {
                         <path d="M5.84 7.132c.083 -.564 .214 -1.12 .392 -1.661c.456 -.936 1.095 -2.068 3.985 -2.456a22.464 22.464 0 0 1 2.867 .08c1.776 .14 2.643 1.234 3.287 3.368c.339 1.157 .46 2.342 .629 3.537v11l-12.704 -.019c-.552 -2.386 -.262 -5.894 .204 -8.481"></path>
                         <path d="M17 10c.991 .163 2.105 .383 3.069 .67c.255 .13 .52 .275 .534 .505c.264 3.434 .57 7.448 .278 9.825h-3.881"></path>
                       </svg><p class="ml-4"> i'm feeling <code class="text-sm font-bold text-gray-900">lucky</code>
+                      </p>
+                    </li>
+                  </Link>
+                  <Link href="/topics">
+                    <li class="flex items-center hover:bg-slate-50 p-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-icons" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M6.5 6.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0"></path>
+                        <path d="M2.5 21h8l-4 -7z"></path>
+                        <path d="M14 3l7 7"></path>
+                        <path d="M14 10l7 -7"></path>
+                        <path d="M14 14h7v7h-7z"></path>
+                      </svg><p class="ml-4"> browse <code class="text-sm font-bold text-gray-900">topics</code>
                       </p>
                     </li>
                   </Link>
